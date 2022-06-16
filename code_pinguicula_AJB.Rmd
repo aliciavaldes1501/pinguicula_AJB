@@ -159,7 +159,7 @@ ping_20_data$seedpods_01<-with(ping_20_data,ifelse(n_seedpods>0,1,0))
 vars <- c("seedpods_01", "n_seedpods","n_seeds") # Our fitness variables
 redata <- reshape(data.frame(subset(ping_20_data,
                                     !is.na(n_seeds)&!is.na(ros_area_log))
-                             [c(1:2,10,15:16,22:26)]), 
+                             [c(1:2,7,10:11,13:17)]), 
                   varying = list(vars),
                   direction = "long", 
                   timevar = "varb", # reshape to long format
@@ -177,15 +177,15 @@ redata <- data.frame(redata, root = 1) # This adds a variable root to the df
 ```{r}
 names(data.frame(subset(ping_20_data,
                                     !is.na(n_seeds)&!is.na(ros_area_log))
-                             [c(1:2,10,15:16,22:26)]))
+                             [c(1:2,7,10:11,13:17)]))
 names(redata)
 nrow(data.frame(subset(ping_20_data,
                                     !is.na(n_seeds)&!is.na(ros_area_log))
-                             [c(1:2,10,15:16,22:26)]))
+                             [c(1:2,7,10:11,13:17)]))
 nrow(redata)
 nrow(data.frame(subset(ping_20_data,
                                     !is.na(n_seeds)&!is.na(ros_area_log))
-                             [c(1:2,10,15:16,22:26)])) * length(vars)
+                             [c(1:2,7,10:11,13:17)])) * length(vars)
 sapply(redata, class)
 levels(redata$varb)
 length(unique(redata$id))
